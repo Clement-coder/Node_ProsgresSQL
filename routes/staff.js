@@ -1,7 +1,14 @@
-const express = require('express')
-const createStaffController=require("../")
+const express = require('express');
+const createStaffController = require("../controller/user");
+const getStaffController = require("../controller/myBoys");
+const updateStaffController = require("../controller/update");
+const deleteStaffController = require("../controller/delete");
 
-const staffRouter = express.Router()
+const router = express.Router();
 
+router.post("/", createStaffController);
+router.get("/", getStaffController);
+router.put("/:id", updateStaffController);
+router.delete("/:id", deleteStaffController);
 
-staffRouter.post("/", )
+module.exports = router;
